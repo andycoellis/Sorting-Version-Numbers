@@ -15,5 +15,16 @@ def solution(l):
 
 
 def tokenizer(w):
+	"""
+	Returns an ordered array of integers converterd from serialised strings
+	"""
+	solution = []
+	for word in w:
+		number = word.split('.')
+		
+		for i in range(0, len(number)):
+			number[i] = int(number[i])
 
-	return w
+		solution.append(number)
+
+	return solution
