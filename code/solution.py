@@ -11,8 +11,8 @@ def solution(l):
 		if not pattern.match(item):
 			raise ValueError("An item does not fill the language format")
 
-
 	return l
+
 
 def tokenizer(w):
 
