@@ -1,4 +1,4 @@
-from code.solution import solution, tokenizer
+from code.solution import solution, tokenizer, version
 
 import pytest
 
@@ -59,3 +59,45 @@ def test_language(l):
 def test_split(l, result):
 	""" Check that string is tokenized correctly """
 	assert tokenizer(l) == result
+
+
+@pytest.mark.parametrize('a, b, result', [
+	(version([0,1,1234]), version([0,0,1234]), False),
+	(version([0,1,1]), version([0,1,11]), True),
+	(version([0,1,1]), version([0,1,1]), False),
+	(version([1,1,1]), version([0,1,1]), False),
+	(version([1,0,0]), version([0,20,10]), False)
+	])
+def test_version_class_lt(a, b, result):
+	assert a < b == result
+
+
+@pytest.mark.parametrize('a, b, result', [
+	(version([0,1,1234]), version([0,0,1234]), True),
+	(version([0,1,1]), version([0,1,11]), False),
+	(version([0,1,1]), version([0,1,1]), False),
+	(version([1,1,1]), version([0,1,1]), True),
+	(version([1,0,0]), version([0,20,10]), True)
+	])
+def test_version_class_gt(a, b, result):
+	assert a > b == result
+
+
+@pytest.mark.parametrize('a, b, result', [
+	(version([0,1,1234]), version([0,0,1234]), False),
+	(version([0,1,1]), version([0,1,11]), False),
+	(version([0,1,1]), version([0,1,1]), True),
+	(version([1,1,1]), version([0,1,1]), False),
+	(version([999,87,812]), version([999,87,812]), True)
+	])
+def test_version_class_eq(a, b, result):
+	assert (a == b) == result
+
+
+@pytest.mark.parametrize('a, result', [
+	(version([0,1,1223]), "0, 1, 1223"),
+	(version([12,22,2123]), "12, 22, 2123")
+	])
+def test_version_class_str(a, result):
+	assert a.__str__() == result
+
