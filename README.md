@@ -19,5 +19,5 @@ Additionally, I wanted to utilse this experience with building upwards with [Tes
 ### Specifications
 * Python 2.7.13
 
-### Libraries
-* *Standard Library* [unittest](https://docs.python.org/3/library/unittest.html)
+### Packages
+* [PyTest 5.0.1](https://docs.pytest.org/en/latest/)
