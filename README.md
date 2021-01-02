@@ -14,7 +14,7 @@ There were three main parts to this challenge when approaching:
 2. Tokenize all strings into seperate lists that allow for integer conditional properties
 3. Sort items using [merge sort](https://www.geeksforgeeks.org/merge-sort/) that would allow for space and time complexity of O(n log (n))
 
-Additionally, I wanted to utilse this experience with building upwards with [Test Driven Development](https://www.martinfowler.com/bliki/TestDrivenDevelopment.html). This also meant that I would be able to utilise [GitHub Actions](https://github.com/features/actions), furthering my knowledge and skills in[Continuous Integration](https://www.atlassian.com/continuous-delivery/continuous-integration).
+Additionally, I wanted to utilse this experience with building upwards with [Test Driven Development](https://www.martinfowler.com/bliki/TestDrivenDevelopment.html). This also meant that I would be able to utilise [GitHub Actions](https://github.com/features/actions), furthering my knowledge and skills in [Continuous Integration](https://www.atlassian.com/continuous-delivery/continuous-integration).
 
 ### Specifications
 * Python 2.7.13
