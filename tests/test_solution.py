@@ -66,7 +66,9 @@ def test_split(l, result):
 	(version([0,1,1]), version([0,1,11]), True),
 	(version([0,1,1]), version([0,1,1]), False),
 	(version([1,1,1]), version([0,1,1]), False),
-	(version([1,0,0]), version([0,20,10]), False)
+	(version([1,0,0]), version([0,20,10]), False),
+	(version([0,0,0]), version([0]), False),
+	(version([0,1,0]), version([0,1]), False)
 	])
 def test_version_class_lt(a, b, result):
 	assert a < b == result
@@ -77,7 +79,9 @@ def test_version_class_lt(a, b, result):
 	(version([0,1,1]), version([0,1,11]), False),
 	(version([0,1,1]), version([0,1,1]), False),
 	(version([1,1,1]), version([0,1,1]), True),
-	(version([1,0,0]), version([0,20,10]), True)
+	(version([1,0,0]), version([0,20,10]), True),
+	(version([0,0,0]), version([0]), False),
+	(version([0,1,0]), version([0,1]), False)
 	])
 def test_version_class_gt(a, b, result):
 	assert a > b == result
@@ -88,7 +92,9 @@ def test_version_class_gt(a, b, result):
 	(version([0,1,1]), version([0,1,11]), False),
 	(version([0,1,1]), version([0,1,1]), True),
 	(version([1,1,1]), version([0,1,1]), False),
-	(version([999,87,812]), version([999,87,812]), True)
+	(version([999,87,812]), version([999,87,812]), True),
+	(version([0,0,0]), version([0]), True),
+	(version([0,1,0]), version([0,1]), True)
 	])
 def test_version_class_eq(a, b, result):
 	assert (a == b) == result
