@@ -1,4 +1,4 @@
-from code.solution import solution
+from code.solution import solution, tokenizer
 
 import pytest
 
