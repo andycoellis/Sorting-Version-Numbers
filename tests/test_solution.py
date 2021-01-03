@@ -114,7 +114,7 @@ def test_version_class_str(a, result):
 	(Version([1,0,0]), [1,0,0]),
 	(Version([0]), [0,0,0])
 	])
-def test_convert_to_list(self, a, result):
+def test_convert_to_list(a, result):
 	assert convert_to_list(a) == result
 
 
@@ -125,7 +125,7 @@ def test_convert_to_list(self, a, result):
 	(Version([1]), Version([1,0,0]), ['E','E','E']),
 	(Version([0,0,1]), Version([0]), ['E','E','G'])
 	])
-def test_label_list(self, a, b, result):
+def test_label_list(a, b, result):
 	
 	a = convert_to_list(a)
 	b = convert_to_list(b)
