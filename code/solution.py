@@ -15,7 +15,7 @@ def solution(l):
 	l = tokenizer(l)
 
 	# Sorted list of version numbers
-	l = mergeSort(l)
+	mergeSort(l)
 
 	return l
 
@@ -26,18 +26,35 @@ def mergeSort(l):
 	algorithm based off 'geeks for geeks' website=https://www.geeksforgeeks.org/merge-sort/
 
 	"""
-	# if len(l) > 1:
-	# 	mid_point = len(l)//2
+	if len(l) > 1:
+		mid_point = len(l)//2
 		
-	# 	left_half = l[:mid_point]
-	# 	right_half = l[mid_point:]
+		left_half = l[:mid_point]
+		right_half = l[mid_point:]
 
-	# 	mergeSort(left_half)
-	# 	mergeSort(right_half)
+		mergeSort(left_half)
+		mergeSort(right_half)
 
-	# 	i = j = k = 0
+		i = j = k = 0
 
+		while i < len(left_half) and j < len(right_half):
+			if Version(left_half[i]) < Version(right_half[j]):
+				l[k] = left_half[i]
+				i += 1
+			else:
+				l[k] = right_half[j]
+				j += 1
+			k += 1
 
+		while i < len(left_half):
+			l[k] = left_half[i]
+			i += 1
+			k += 1
+
+		while j < len(right_half):
+			l[k] = right_half[j]
+			j += 1
+			k += 1
 
 
 def tokenizer(l):
@@ -103,7 +120,7 @@ class Version(list):
 	def __eq__(self, o):
 		check = self.check_equivalence(o)
 
-		return True if check == 'E' else False
+		return True if check == 'E'  else False
 
 	
 	def __lt__(self, o):
@@ -145,12 +162,18 @@ class Version(list):
 		for item in check:
 			if item == 'E':
 				count += 1
-
+		# Version numbers must be exactly equal in length and number to pass		
 		response = 'E' if count == 3 else None
 
 		if response is None:
 			for item in check:
 				if response is None and item != 'E':
 					response = item
+
+		if response == 'E' and (len(self.v) != len(o)):
+			if len(self.v) < len(o):
+				response = 'L'
+			else:
+				response = 'G'
 
 		return response
