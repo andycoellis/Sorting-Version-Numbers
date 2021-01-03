@@ -71,7 +71,7 @@ def test_split(l, result):
 	(Version([0,1,0]), Version([0,1]), False)
 	])
 def test_version_class_lt(a, b, result):
-	assert a < b == result
+	assert (a < b) == result
 
 
 @pytest.mark.parametrize('a, b, result', [
@@ -84,7 +84,7 @@ def test_version_class_lt(a, b, result):
 	(Version([0,1,0]), Version([0,1]), False)
 	])
 def test_version_class_gt(a, b, result):
-	assert a > b == result
+	assert (a > b) == result
 
 
 @pytest.mark.parametrize('a, b, result', [
