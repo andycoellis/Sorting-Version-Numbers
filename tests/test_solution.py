@@ -101,8 +101,8 @@ def test_version_class_eq(a, b, result):
 
 
 @pytest.mark.parametrize('a, result', [
-	(Version([0,1,1223]), "0, 1, 1223"),
-	(Version([12,22,2123]), "12, 22, 2123")
+	(Version([0,1,1223]), "0.1.1223"),
+	(Version([12,22,2123]), "12.22.2123")
 	])
 def test_version_class_str(a, result):
 	assert a.__str__() == result
