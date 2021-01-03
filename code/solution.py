@@ -18,7 +18,7 @@ def solution(l):
 	mergeSort(l)
 
 	# Convert list into output string
-	l = convert_to_string(l)
+	convert_list_to_strings(l)
 
 	return l
 
@@ -60,16 +60,10 @@ def mergeSort(l):
 			k += 1
 
 
-def convert_to_string(l):
+def convert_list_to_strings(l):
 	""" Converts a given list into the desired string representation"""
-	s = None
 	for i in range(0, len(l)):
-		if i == 0:
-			s = str(Version(l[i]))
-		else:
-			s = s + ',' + str(Version(l[i]))
-
-	return s
+		l[i] = str(Version(l[i]))
 
 
 def tokenizer(l):
