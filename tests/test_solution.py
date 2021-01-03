@@ -12,7 +12,7 @@ import pytest
 	(["1.1.2", "1.0", "1.3.3", "1.0.12", "1.0.2", "0.0.1", "1", "1.0.0"],
 		["0.0.1","1","1.0","1.0.0","1.0.2","1.0.12","1.1.2","1.3"], False)
 	])
-def test_solution(l, result):
+def test_solution(l, r, result):
 	""" Checks that the solution is ouputed in correct order """
 	assert (solution(l) == r) == result
 
