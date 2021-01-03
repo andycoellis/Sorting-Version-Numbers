@@ -21,3 +21,47 @@ Additionally, I wanted to utilse this experience with building upwards with [Tes
 
 ### Packages
 * [PyTest 5.0.1](https://docs.pytest.org/en/latest/)
+
+### Notes on project
+
+* I found that in order to best implement a clean version of the merge sort algorithm I would have to create an class object of each string of *version numbers* this allowed me to overload operators as found below.
+
+```python
+	def __eq__(self, o):
+	
+	def __lt__(self, o):
+
+	def __gt__(self, o):
+
+	def __str__(self):
+
+	def __len__(self):
+
+	def __getitem__(self, i):
+```
+
+* This made such blocks of code much more readable for observors, this can be seen where the class ```Version``` is implemented
+
+```python
+		while i < len(left_half) and j < len(right_half):
+			if Version(left_half[i]) < Version(right_half[j]):
+				l[k] = left_half[i]
+				i += 1
+			else:
+				l[k] = right_half[j]
+				j += 1
+			k += 1
+```
+
+Other noteworthy aspects I found in the challenge was the use of ```pytest``` as the testing framework, this allowed for ease integration with *GitHub Actions* and also was convenient for adding multiple parameters in the test cases. *An example can be found below...*
+
+```python
+@pytest.mark.parametrize('a, result', [
+	(Version([1, 0]), [1,0,0]), 
+	(Version([1]), [1,0,0]),
+	(Version([1,0,0]), [1,0,0]),
+	(Version([0]), [0,0,0])
+	])
+def test_convert_to_list(a, result):
+	assert convert_to_list(a) == result
+```
