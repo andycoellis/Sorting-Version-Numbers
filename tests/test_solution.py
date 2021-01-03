@@ -67,7 +67,7 @@ def test_split(l, result):
 	(Version([0,1,1]), Version([0,1,1]), False),
 	(Version([1,1,1]), Version([0,1,1]), False),
 	(Version([1,0,0]), Version([0,20,10]), False),
-	(Version([0,0,0]), Version([0]), False),
+	(Version([0]), Version([0,0,0]), True),
 	(Version([0,1,0]), Version([0,1]), False)
 	])
 def test_version_class_lt(a, b, result):
@@ -80,8 +80,8 @@ def test_version_class_lt(a, b, result):
 	(Version([0,1,1]), Version([0,1,1]), False),
 	(Version([1,1,1]), Version([0,1,1]), True),
 	(Version([1,0,0]), Version([0,20,10]), True),
-	(Version([0,0,0]), Version([0]), False),
-	(Version([0,1,0]), Version([0,1]), False)
+	(Version([0,0,0]), Version([0]), True),
+	(Version([0,1,0]), Version([0,1]), True)
 	])
 def test_version_class_gt(a, b, result):
 	assert (a > b) == result
@@ -93,8 +93,8 @@ def test_version_class_gt(a, b, result):
 	(Version([0,1,1]), Version([0,1,1]), True),
 	(Version([1,1,1]), Version([0,1,1]), False),
 	(Version([999,87,812]), Version([999,87,812]), True),
-	(Version([0,0,0]), Version([0]), True),
-	(Version([0,1,0]), Version([0,1]), True)
+	(Version([0,0,0]), Version([0]), False),
+	(Version([0,1,0]), Version([0,1]), False)
 	])
 def test_version_class_eq(a, b, result):
 	assert (a == b) == result
